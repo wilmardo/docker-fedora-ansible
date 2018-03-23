@@ -1,8 +1,8 @@
 FROM fedora:26
 
-ENV container docker
+LABEL maintainer="Wilmar den Ouden <info@wilmardenouden.nl>"
 
-LABEL maintainer="Wilmar den Ouden <info@wilmardenoude.nl>"
+ENV container docker
 
 # We only want few core services run in the container.
 RUN systemctl mask \
