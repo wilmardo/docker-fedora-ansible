@@ -3,6 +3,18 @@ FROM fedora:27
 LABEL maintainer="Wilmar den Ouden <info@wilmardenouden.nl>"
 
 ENV container docker
+ENV UDEV on
+
+RUN dnf update -y \
+    && dnf install -y \
+        ca-certificates \
+        tar \
+        systemd \
+        udev \
+        which \
+        hostname \
+        curl \
+    && dnf clean all
 
 # We only want few core services run in the container.
 RUN systemctl mask \
